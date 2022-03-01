@@ -1,3 +1,8 @@
-const message: string = "Hello World!";
+const message: string = "Hello World!!!!";
 
-console.log(message);
+const hero = {
+    name: "Iron Man 🤖",
+    age: 45
+};
+
+console.log(hero.age);
