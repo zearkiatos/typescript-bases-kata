@@ -1,0 +1,38 @@
+{
+  "name": "typescript-bases-kata",
+  "version": "1.0.0",
+  "description": "This is a base project to continue learn an understanding TypeScript ",
+  "main": "app.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest -c jest.config.js --coverage",
+    "audit": "npm audit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zearkiatos/typescript-bases-kata.git"
+  },
+  "keywords": [
+    "Kata",
+    "Typescript",
+    "basic",
+    "practice"
+  ],
+  "author": "Pedro Capriles <caprilespe@outlook.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zearkiatos/typescript-bases-kata/issues"
+  },
+  "homepage": "https://github.com/zearkiatos/typescript-bases-kata#readme",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "pre-commit": "^1.2.2",
+    "ts-jest": "^27.1.3"
+  },
+  "pre-commit": [
+    "audit",
+    "test"
+  ]
+}
