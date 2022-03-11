@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: typescript-bases-kata
+    volumes: 
+      - ".:/usr/src/app"
