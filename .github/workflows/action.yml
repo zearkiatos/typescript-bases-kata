@@ -1,0 +1,29 @@
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: 
+      name: staging
+    strategy:
+      matrix:
+        node-version: [15.x]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Generate build number
+      run: echo "The build number $GITHUB_RUN_NUMBER 🏗"
+    - name: Install dependencies
+      run: npm install
+    - name: Test 🧪
+      run: npm run test
+    - name: Build docker 🐳
+      run: docker build . -t=typescript-bases-kata:ghb-$GITHUB_RUN_NUMBER
+    - name: Build
+      run: npm run build
