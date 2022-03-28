@@ -34,5 +34,8 @@
   "pre-commit": [
     "audit",
     "test"
-  ]
+  ],
+  "dependencies": {
+    "typescript": "^4.6.3"
+  }
 }
