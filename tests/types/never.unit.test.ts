@@ -6,7 +6,7 @@ describe('Unit test suite for numbers type', () => {
             fakeError('❌ Error ocurred 😱');
         }
         catch(ex:any) {              
-            expect(ex).toThrow();
+            expect(ex.message).toBe(errorExpected);
         }
     });
 });
