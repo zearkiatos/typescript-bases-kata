@@ -16,4 +16,4 @@ describe('Unit test suite for functions', () => {
         expect(typeof activateBatiSignal).toBe('function')
         expect(messageForBatman).toBe(expectedResult);
     });
-})
+});
