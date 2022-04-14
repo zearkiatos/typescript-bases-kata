@@ -15,4 +15,16 @@ describe('Unit test suites for default arguments into the functions', () => {
 
         expect(theFullName).toBe(resultExpected);
     });
+
+    test('Should return a throw error when the first name is undefined', () => {
+        const resultExpected: Error =new Error("The argument firstName is required");
+        const undefinedFirstName:any = undefined;
+
+        try {
+            fullName(undefinedFirstName, 'Capriles', true);
+        }
+        catch(ex:any) {
+            expect(ex.message).toBe(resultExpected.message);
+        }
+    });
 });
