@@ -13,7 +13,15 @@ let heroe: { name: string, age: number, powers: string[], getName: () => string 
     }
 }
 
+type Hero = {
+    name: string,
+    age?: number,
+    powers: string[]
+    getName?: () => string
+};
+
 export {
     flash,
-    heroe
+    heroe,
+    Hero
 }

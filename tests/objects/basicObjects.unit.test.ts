@@ -1,4 +1,4 @@
-import { flash, heroe } from '../../src/objects/basicObjects';
+import { flash, heroe, Hero } from '../../src/objects/basicObjects';
 describe('Unit test suites for basic objects', () => {
     test('Should return the type for each attributes', () => {
         expect(typeof flash.age).toBe('number');
@@ -29,5 +29,26 @@ describe('Unit test suites for basic objects', () => {
         expect(typeof superman.powers).toBe('object');  
         expect(typeof superman.getName).toBe('function');
         expect(superman.getName()).toBe(expectedName);  
+    });
+
+
+    test('Should use custom type Hero', () => {
+        let ironMan: Hero;
+        const expectedName: string = 'Iron Man';
+
+        ironMan = {
+            age: 30,
+            name: 'Iron Man',
+            powers: ['Army', 'Artificial Technologies', 'Super force'],
+            getName(){
+                return self.name
+            }
+        };
+
+        expect(typeof ironMan.age).toBe('number');
+        expect(typeof ironMan.name).toBe('string');
+        expect(typeof ironMan.powers).toBe('object');  
+        expect(typeof ironMan.getName).toBe('function');
+        expect(ironMan.getName()).toBe(expectedName);  
     });
 });
