@@ -41,7 +41,7 @@ describe('Unit test suites for basic objects', () => {
             name: 'Iron Man',
             powers: ['Army', 'Artificial Technologies', 'Super force'],
             getName(){
-                return self.name
+                return this.name;
             }
         };
 
