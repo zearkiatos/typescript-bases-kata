@@ -28,7 +28,7 @@ describe('Unit test suites for basic objects', () => {
         expect(typeof superman.name).toBe('string');
         expect(typeof superman.powers).toBe('object');  
         expect(typeof superman.getName).toBe('function');
-        expect(superman.getName()).toBe(expectedName);  
+        expect(superman.getName?.()).toBe(expectedName);  
     });
 
 
@@ -49,6 +49,6 @@ describe('Unit test suites for basic objects', () => {
         expect(typeof ironMan.name).toBe('string');
         expect(typeof ironMan.powers).toBe('object');  
         expect(typeof ironMan.getName).toBe('function');
-        expect(ironMan.getName()).toBe(expectedName);  
+        expect(ironMan.getName?.()).toBe(expectedName);  
     });
 });
