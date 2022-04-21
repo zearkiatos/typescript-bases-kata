@@ -4,7 +4,7 @@ const hero = {
   name: "Iron Man 🤖",
   age: 45
 };
-
+// this is a comment
 console.log(hero.age);
 
 const a: number = 10;
