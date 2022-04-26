@@ -32,11 +32,12 @@ describe('Unit test suite for destructuring objects', () => {
 
     test('Should get by console iron man and the rest of the avengers', () => {
         const resultExpected:string = avengers.ironMan;
+        const { ironMan, ...restExpected} = avengers;
 
         printRestAvengers(avengers);
 
         expect(logSpyOn).toHaveBeenCalled();
-        expect(logSpyOn).toHaveBeenCalledWith(resultExpected);
+        expect(logSpyOn).toHaveBeenCalledWith(resultExpected, restExpected);
     });
 
 
