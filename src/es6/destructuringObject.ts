@@ -22,8 +22,11 @@ const printRestAvengers = ({ ironMan, ...rest }:Avengers):void => {
     console.log(ironMan, rest);
 };
 
+const avengersArray:string[] = ['American Captain', 'Iron Man', 'Hulk'];
+
 export {
     avengers,
     printAvenger,
-    printRestAvengers
+    printRestAvengers,
+    avengersArray
 }

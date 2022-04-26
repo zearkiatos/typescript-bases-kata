@@ -1,4 +1,4 @@
-import { avengers, printAvenger, printRestAvengers } from '../../src/es6/destructuringObject';
+import { avengers, printAvenger, printRestAvengers, avengersArray } from '../../src/es6/destructuringObject';
 describe('Unit test suite for destructuring objects', () => {
     let logSpyOn: any;
     beforeAll(() => {
@@ -38,6 +38,14 @@ describe('Unit test suite for destructuring objects', () => {
 
         expect(logSpyOn).toHaveBeenCalled();
         expect(logSpyOn).toHaveBeenCalledWith(resultExpected, restExpected);
+    });
+
+    test('Should destructuring an array to get Iron Man', () => {
+       const resultExpected:string = 'Iron Man';
+
+       const [, ironMan] = avengersArray;
+
+        expect(ironMan).toBe(resultExpected);
     });
 
 
