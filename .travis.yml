@@ -1,0 +1,16 @@
+language: node_js
+services:
+  - docker
+cache:
+  directories:
+    - ~/.npm
+node_js:
+  - '15'
+git:
+  depth: 3
+script:
+  - yarn test
+  - yarn build
+  - docker build . -t=typescript-bases-kata
+on:
+  branch: develop 
