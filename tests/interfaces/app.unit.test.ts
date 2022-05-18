@@ -1,7 +1,6 @@
-import random from 'random-name';
+import { faker } from '@faker-js/faker';
 import { Auto, Villain, City } from '../../src/interfaces/app';
 import CitizenBuilder from '../builders/CitizenBuilder';
-
 describe("Test unit to evaluate the interface", () => {
     let consoleSpyOn:any;
 
@@ -78,12 +77,31 @@ describe("Test unit to evaluate the interface", () => {
 
         expect(consoleSpyOn).not.toHaveBeenCalled();
     });
+
+    test('Should return the citizens quantity', () => {
+        const citizen = massiveRandomCitizens(10000000);
+        const quantityExpected:number = 10000000;
+
+        const citizenQuantity: City = (citizens: string[]): number => {
+            return citizens.length;
+        }
+
+        const peopleQuantity:number = citizenQuantity(citizen);
+
+        expect(peopleQuantity).toBe(quantityExpected);
+    });
 });
 
 const massiveRandomCitizens = (quantities: number): any[] => {
-    const citizens:any[];
+    const citizens:string[] = [];
     for(let i= 0; i<quantities; i++) {
+        let citizen:any = new CitizenBuilder()
+            .withFirstName(faker.name.firstName())
+            .withMiddleName(faker.name.middleName())
+            .withLastName(faker.name.lastName())
+            .build()
+        citizens.push(`${citizen.firstName} ${citizen.middleName} ${citizen.lastName}`);
         
     }
-    return 
+    return citizens;
 }
