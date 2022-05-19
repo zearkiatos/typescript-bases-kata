@@ -1,6 +1,6 @@
-import { faker } from '@faker-js/faker';
-import { Auto, Villain, City } from '../../src/interfaces/app';
+import { Auto, Villain, City, Person, Genre, CivilStatus } from '../../src/interfaces/app';
 import CitizenBuilder from '../builders/CitizenBuilder';
+const { faker } = require('@faker-js/faker');
 describe("Test unit to evaluate the interface", () => {
     let consoleSpyOn:any;
 
@@ -78,7 +78,7 @@ describe("Test unit to evaluate the interface", () => {
         expect(consoleSpyOn).not.toHaveBeenCalled();
     });
 
-    test('Should return the citizens quantity', () => {
+    test('Should create a new Person than implement the PersonalData interface and return a bio by console', () => {
         const citizen = massiveRandomCitizens(10000000);
         const quantityExpected:number = 10000000;
 
@@ -89,6 +89,16 @@ describe("Test unit to evaluate the interface", () => {
         const peopleQuantity:number = citizenQuantity(citizen);
 
         expect(peopleQuantity).toBe(quantityExpected);
+    });
+
+    test('Should return the citizens quantity', () => {
+        const bioExpected:string = 'Name: Pedro Capriles, Age: 32, Genre: Male, Civil Status: Single';
+
+        const person: Person = new Person('Pedro Capriles', 32, Genre.MALE, CivilStatus.SINGLE);
+        person.bio();
+
+        expect(consoleSpyOn).toHaveBeenCalled();
+        expect(consoleSpyOn).toHaveBeenCalledWith(bioExpected);
     });
 });
 
